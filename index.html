@@ -4,12 +4,36 @@
   <meta charset="utf-8" />
   <title>Bangalore Tirupati Package</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bangalore → Tirupati tours and travel packages. Book reliable, comfortable trips with ease." />
+  <link rel="canonical" href="https://www.bangaloretirupatipackage.com/" />
+
+  <!-- Force apex to www (client-side) -->
+  <script>
+    (function () {
+      var apex = 'bangaloretirupatipackage.com';
+      if (location.hostname === apex) {
+        var target = 'https://www.' + apex + location.pathname + location.search + location.hash;
+        location.replace(target);
+      }
+    })();
+  </script>
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Bangalore Tirupati Package" />
+  <meta property="og:description" content="Bangalore → Tirupati tours and travel packages. Book reliable, comfortable trips with ease." />
+  <meta property="og:url" content="https://www.bangaloretirupatipackage.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+
   <style>
-    body {font-family: Arial, sans-serif; margin: 0; padding: 40px; line-height: 1.6; background:#fafafa;}
+    body {font-family: Arial, sans-serif; margin: 0; padding: 40px; line-height: 1.6; background:#fafafa; color:#111;}
     header {max-width: 900px; margin: 0 auto;}
     h1 {margin: 0 0 10px;}
     p {color: #444;}
     .tag {display:inline-block; background:#0b5; color:#fff; padding:4px 10px; border-radius:6px; font-size:14px;}
+    footer {max-width: 900px; margin: 40px auto 0; font-size: 14px; color:#666;}
+    a {color:#0a7; text-decoration:none;}
+    a:hover {text-decoration:underline;}
   </style>
 </head>
 <body>
@@ -18,5 +42,14 @@
     <h1>Bangalore Tirupati Package</h1>
     <p>Website will be live soon via GitHub Pages + custom domain.</p>
   </header>
+
+  <footer>
+    <p>© <span id="year"></span> Bangalore Tirupati Package</p>
+  </footer>
+
+  <script>
+    // Set the current year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
