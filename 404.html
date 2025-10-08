@@ -6,6 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRPHW83NEW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GRPHW83NEW');
+  </script>
+
+  <!-- Temporary client-side redirect for apex → www (remove later when server redirect is stable) -->
+  <script>
+    (function () {
+      if (location.hostname === 'bangaloretirupatipackage.com') {
+        location.replace('https://www.bangaloretirupatipackage.com' + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
+
   <style>
     :root { --bg:#fafafa; --text:#111; --muted:#666; --brand:#0b5; }
     body { font-family: Arial, sans-serif; margin:0; background:var(--bg); color:var(--text); }
