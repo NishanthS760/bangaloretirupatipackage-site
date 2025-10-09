@@ -2120,6 +2120,27 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-GRPHW83NEW');
+        
+        // Track phone calls
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'phone_call', {
+                        'phone_number': this.href.replace('tel:', ''),
+                        'event_category': 'Contact'
+                    });
+                });
+            });
+            
+            // Track WhatsApp clicks
+            document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'whatsapp_click', {
+                        'event_category': 'Contact'
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
