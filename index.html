@@ -1,60 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Ensure proper scaling on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Page title -->
-    <title>
-      Your Project Name 🚀
-    </title>
-    <!-- SEO-friendly meta tags -->
-    <meta name="description" content="A brief description of your project or repository." />
-    <meta name="keywords" content="keyword1, keyword2, keyword3" />
-    <!-- Link to your CSS stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" />
-  </head>
-  <body>
-    <!-- Project Header -->
-    <header>
-      <h1>Your Project Name 🌟</h1>
-      <p>A short project description or tagline.</p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book your Bangalore to Tirupati Balaji one-day package—AC sleeper bus, breakfast/lunch, freshen up, verified guide. Fast-track darshan & easy booking. Limited seats!" />
+  <meta name="keywords" content="Tirupati Balaji Temple, Tirupati darshan, Bangalore to Tirupati, One day Tirupati package, AC sleeper bus, Padmavathi Temple, Tirupati Balaji live" />
+  <title>TirupatiBalaji.live — Bangalore to Tirupati One-Day Package</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html{scroll-behavior:smooth;}
+    body{background-color:#fff;color:#222;font-family:'Inter',sans-serif;}
+    .hero{background:url('hero.jpg') center/cover no-repeat;height:100vh;}
+    .overlay{background:rgba(0,0,0,0.55);}
+    .timeline-step{transition:transform 0.3s;}
+    .timeline-step:hover{transform:scale(1.05);}
+    .sticky-form{position:fixed;bottom:0;left:0;right:0;z-index:50;background:#fefefe;border-top:2px solid #e2e8f0;}
+  </style>
 
-    <!-- Main Navigation (customize links as needed) -->
-    <nav>
-      <ul>
-        <li><a href="README.md">Overview</a></li>
-        <li><a href="docs/installation.md">Installation</a></li>
-        <li><a href="docs/usage.md">Usage</a></li>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRPHW83NEW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GRPHW83NEW');
+  </script>
+</head>
+<body class="antialiased leading-relaxed">
+
+  <!-- Hero Section -->
+  <section class="hero relative flex items-center justify-center text-center text-white">
+    <div class="overlay absolute inset-0"></div>
+    <div class="relative z-10 p-6">
+      <img src="venkateshwara.png" alt="Lord Venkateshwara" class="mx-auto w-24 mb-4 rounded-full shadow-lg">
+      <h1 class="text-4xl md:text-6xl font-bold mb-3">Bangalore → Tirupati Balaji: One-Day Express Pilgrimage</h1>
+      <p class="text-lg mb-6">AC Sleeper Bus • Fast-Track Darshan • Breakfast & Lunch Included</p>
+      <a href="#booking" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold">Book for Next Available Date</a>
+      <div class="mt-3 text-yellow-300 text-sm">★ 4.9/5 Rated • 12,000+ Families Served</div>
+    </div>
+  </section>
+
+  <!-- Pilgrimage Timeline -->
+  <section id="timeline" class="py-16 bg-gradient-to-b from-white to-orange-50">
+    <h2 class="text-3xl font-bold text-center mb-10 text-orange-700">Your Sacred One-Day Journey</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+      <div class="timeline-step bg-white shadow-lg rounded-xl p-6">
+        <h3 class="font-bold text-lg text-orange-600">Departure from Bangalore</h3>
+        <p>Pickup points: Majestic, Indiranagar, KR-Puram. AC Sleeper Bus comfort.</p>
+      </div>
+      <div class="timeline-step bg-white shadow-lg rounded-xl p-6">
+        <h3 class="font-bold text-lg text-orange-600">Guided Darshan</h3>
+        <p>Fast-track entry with verified guide. Padmavathi & Balaji temples covered.</p>
+      </div>
+      <div class="timeline-step bg-white shadow-lg rounded-xl p-6">
+        <h3 class="font-bold text-lg text-orange-600">Return & Blessings</h3>
+        <p>Evening return with divine memories and prasadam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Darshan Time Saver Widget -->
+  <section class="py-12 bg-blue-50" id="timesaver">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-blue-800 mb-4">Darshan Time Saver</h2>
+      <p class="mb-4 text-gray-700">Estimate crowd & waiting time based on day type:</p>
+      <select id="crowdLevel" class="border p-2 rounded">
+        <option value="low">Weekday</option>
+        <option value="medium">Weekend</option>
+        <option value="high">Festival</option>
+      </select>
+      <button onclick="calcTime()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded ml-2">Check Time</button>
+      <p id="result" class="mt-4 font-semibold text-blue-800"></p>
+    </div>
+  </section>
+
+  <script>
+    function calcTime(){
+      const val=document.getElementById('crowdLevel').value;
+      let text="";
+      if(val==="low")text="Expected wait: ~30–60 min";
+      else if(val==="medium")text="Expected wait: ~2–3 hrs";
+      else text="Expected wait: ~4–6 hrs. Plan early.";
+      document.getElementById('result').innerText=text;
+    }
+  </script>
+
+  <!-- Package Details -->
+  <section id="package" class="py-16 bg-orange-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8 text-orange-700">Package Details</h2>
+      <ul class="grid md:grid-cols-2 gap-4 text-gray-800">
+        <li>✔ AC Sleeper Bus</li>
+        <li>✔ Freshen-up Room</li>
+        <li>✔ Breakfast & Lunch</li>
+        <li>✔ Verified Guide</li>
+        <li>✔ Laddu Prasadam</li>
+        <li>✔ Padmavathi Temple Visit</li>
+        <li>✔ Pickup Points: Majestic, Indiranagar, KR-Puram</li>
+        <li>✔ Weekday ₹2500 / Weekend ₹2800</li>
       </ul>
-    </nav>
+    </div>
+  </section>
 
-    <!-- Project Features or Sections -->
-    <main>
-      <section>
-        <h2>Features</h2>
-        <ul>
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <!-- Add more features here -->
-        </ul>
-      </section>
-      <section>
-        <h2>Installation</h2>
-        <pre><code># Installation command or instructions</code></pre>
-      </section>
-    </main>
+  <!-- Booking Form -->
+  <div id="booking" class="sticky-form px-4 py-3">
+    <form class="max-w-5xl mx-auto grid md:grid-cols-6 gap-2">
+      <input type="text" placeholder="Name" class="border p-2 rounded col-span-1 md:col-span-1" required>
+      <input type="tel" placeholder="Phone" class="border p-2 rounded col-span-1 md:col-span-1" required>
+      <input type="number" placeholder="Age" class="border p-2 rounded col-span-1 md:col-span-1">
+      <input type="date" class="border p-2 rounded col-span-1 md:col-span-1" required>
+      <input type="number" placeholder="Seats" class="border p-2 rounded col-span-1 md:col-span-1" required>
+      <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white p-2 rounded col-span-1 font-semibold">Book Now</button>
+    </form>
+    <p class="text-center text-xs mt-1 text-gray-500">Call/WhatsApp: <a href="tel:+919611621938" class="text-blue-700">+91 9611621938</a></p>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2023 Your Name. All rights reserved.</p>
-      <a href="https://github.com/yourusername/your-repo" target="_blank">View on GitHub &#9875;</a>
-    </footer>
+  <!-- Testimonials -->
+  <section class="py-16 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-10 text-orange-700">Pilgrim Stories</h2>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 px-6">
+      <div class="p-4 border rounded-xl shadow"><p>“Flawless trip! Great guide and smooth darshan.”</p><strong>- Priya R.</strong></div>
+      <div class="p-4 border rounded-xl shadow"><p>“Clean bus, quick service. Padmavathi visit was divine.”</p><strong>- Rajesh K.</strong></div>
+      <div class="p-4 border rounded-xl shadow"><p>“Highly recommend. Perfect for families.”</p><strong>- Suma P.</strong></div>
+    </div>
+  </section>
 
-    <!-- Optional: Include JavaScript files at the bottom for better performance -->
-    <script src="scripts.js"></script>
-  </body>
+  <!-- FAQ -->
+  <section id="faq" class="py-16 bg-orange-50">
+    <h2 class="text-3xl font-bold text-center mb-10 text-orange-700">Frequently Asked Questions</h2>
+    <div class="max-w-3xl mx-auto space-y-4 px-6">
+      <details class="border p-4 rounded"><summary class="font-semibold">Is food included?</summary>Yes, vegetarian breakfast and lunch are included.</details>
+      <details class="border p-4 rounded"><summary class="font-semibold">What time does the trip start?</summary>Departures around 4 AM from Bangalore, return same night.</details>
+      <details class="border p-4 rounded"><summary class="font-semibold">Refund policy?</summary>Full refund if canceled 48 hrs prior to travel.</details>
+    </div>
+  </section>
+
+  <!-- About Guides -->
+  <section id="guides" class="py-16 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-10 text-orange-700">Meet Our Verified Guides</h2>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 px-6">
+      <div class="p-4 border rounded-xl text-center">
+        <img src="guide1.jpg" alt="Guide" class="w-24 h-24 mx-auto rounded-full mb-2">
+        <p><strong>Ramesh B.</strong><br>10 yrs experience • Verified by TTD</p>
+      </div>
+      <div class="p-4 border rounded-xl text-center">
+        <img src="guide2.jpg" alt="Guide" class="w-24 h-24 mx-auto rounded-full mb-2">
+        <p><strong>Anitha S.</strong><br>Certified Spiritual Tour Guide</p>
+      </div>
+      <div class="p-4 border rounded-xl text-center">
+        <img src="guide3.jpg" alt="Guide" class="w-24 h-24 mx-auto rounded-full mb-2">
+        <p><strong>Murali K.</strong><br>8 yrs experience • Fluent in English/Kannada</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-blue-50 text-center">
+    <h2 class="text-3xl font-bold mb-4 text-blue-800">Need Help?</h2>
+    <p>WhatsApp / Call: <a href="tel:+919611621938" class="text-blue-700 font-semibold">+91 9611621938</a></p>
+    <p>Email: <a href="mailto:info@bangaloretirupatipackage.com" class="text-blue-700">info@bangaloretirupatipackage.com</a></p>
+    <p class="mt-3 text-sm text-gray-600">Pickup map & directions shared post-booking.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
+    © 2025 BangaloreTirupatiPackage.com | Licensed Operator | Privacy • Refund • Terms
+  </footer>
+
+</body>
 </html>
