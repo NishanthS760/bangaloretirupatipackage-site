@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -20,11 +20,11 @@
   <meta name="twitter:description" content="AC sleeper bus, freshen up, meals, verified guide. 5,000+ families served.">
   <meta name="twitter:image" content="https://www.bangaloretirupatipackage.com/og.jpg">
 
-  <!-- Google Analytics (optional) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRPHW83NEW"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config','G-GRPHW83NEW');
   </script>
@@ -43,6 +43,12 @@
       "addressLocality":"Bangalore",
       "addressRegion":"Karnataka",
       "addressCountry":"IN"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "06:30",
+      "closes": "23:00"
     }
   }
   </script>
@@ -67,7 +73,62 @@
     "mainEntity":[
       {"@type":"Question","name":"What is included in the one-day Tirupati package?","acceptedAnswer":{"@type":"Answer","text":"AC sleeper bus, freshen-up room, breakfast, lunch, prasadam, verified guide for Balaji & Padmavathi visits, and same-day return travel."}},
       {"@type":"Question","name":"Are Special Entry passes provided?","acceptedAnswer":{"@type":"Answer","text":"Official TTD Special Entry Darshan (₹300) is not available. No Special Entry passes will be provided."}},
-      {"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"100% refund 48+ hours before departure, 50% refund 24–48 hours, and no refund within 24 hours of departure."}}
+      {"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"100% refund 48+ hours before departure, 50% refund 24–48 hours, and no refund within 24 hours of departure."}},
+      {"@type":"Question","name":"Can seniors or kids travel comfortably?","acceptedAnswer":{"@type":"Answer","text":"Yes. Sleeper berths are padded, we schedule comfort halts, and our guides help senior citizens through the darshan process. Share special needs during booking so we can plan ahead."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"TouristTrip",
+    "name":"Bangalore to Tirupati One-Day Package",
+    "description":"AC sleeper bus, freshen-up room, breakfast & lunch, verified guide for Balaji & Padmavathi temple visits",
+    "provider": {
+      "@type": "TravelAgency",
+      "name": "Bangalore Tirupati Package"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "2500",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-01-01",
+        "validThrough": "2025-12-31"
+      }
+    ],
+    "itinerary": [
+      {
+        "@type": "Trip",
+        "name": "Boarding & Departure",
+        "description": "Join us at Majestic, Indiranagar, or KR Puram. AC sleeper with charging ports."
+      },
+      {
+        "@type": "Trip",
+        "name": "Comfortable Night Journey",
+        "description": "Rest on clean sleeper berths. Blankets provided."
+      },
+      {
+        "@type": "Trip",
+        "name": "Freshen Up on Arrival",
+        "description": "Private rooms in Tirupati with hot water."
+      },
+      {
+        "@type": "Trip",
+        "name": "Balaji & Padmavathi Darshan",
+        "description": "Guided entry assistance through the regular queue."
+      },
+      {
+        "@type": "Trip",
+        "name": "Breakfast & Lunch",
+        "description": "Authentic South Indian breakfast and Andhra lunch."
+      },
+      {
+        "@type": "Trip",
+        "name": "Same-Day Return",
+        "description": "Depart Tirupati post-lunch, reach Bangalore between 10:00–11:30 PM."
+      }
     ]
   }
   </script>
@@ -123,8 +184,9 @@
       background:
         radial-gradient(circle at top right, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 55%),
         linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%),
-        url("assets/temple-header.jpg") center/cover no-repeat;
+        url("https://www.bangaloretirupatipackage.com/hero.jpg") center/cover no-repeat;
       color:#fff;
+      background-color: #000; /* Fallback */
     }
     header::after{
       content:"";
@@ -731,7 +793,7 @@
           </div>
           <div>
             <label for="phone">Mobile number</label>
-            <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="\\d{10}" required placeholder="10-digit mobile" aria-describedby="phoneHelp">
+            <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" required placeholder="10-digit mobile" aria-describedby="phoneHelp">
             <p id="phoneHelp" class="helper">Enter 10 digits without country code. We WhatsApp your confirmation.</p>
           </div>
           <div>
@@ -840,7 +902,7 @@
   <script>
     const today = new Date();
     const minBookingDate = new Date(today.getTime() + 2*24*60*60*1000);
-    const nextTripDate = new Date(today.getTime() + 3*24*60*64*1000);
+    const nextTripDate = new Date(today.getTime() + 3*24*60*60*1000); // Fixed: was 64*1000
     document.getElementById("date").min = minBookingDate.toISOString().split("T")[0];
     document.getElementById("nextTripDate").textContent = nextTripDate.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
     document.getElementById("date").value = document.getElementById("date").min;
