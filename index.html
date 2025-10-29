@@ -1284,58 +1284,6 @@
         </div>
       </div>
 
-    // functions/index.js
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
-const axios = require("axios");
-
-admin.initializeApp();
-const db = admin.firestore();
-
-// Cloud Function: fetch and store crowd data
-exports.getTTDStatus = functions
-  .region("asia-south1")
-  .runWith({ timeoutSeconds: 60, memory: "256MB" })
-  .https.onRequest(async (req, res) => {
-    try {
-      // Example scrape (replace URL with official source)
-      const { data } = await axios.get("https://tirupatibalaji.ap.gov.in/portal/jsondata/ticketStatus.json");
-      const crowdData = {
-        currentPilgrims: data?.sarvaDarshan?.pilgrims || "N/A",
-        waitingCompartments: data?.sarvaDarshan?.waitingComp || "N/A",
-        darshanTime: data?.sarvaDarshan?.time || "N/A",
-        todayTotal: data?.sarvaDarshan?.total || "N/A",
-        updatedAt: new Date().toISOString(),
-      };
-      await db.collection("crowdStatus").doc("current").set(crowdData);
-      res.status(200).json(crowdData);
-    } catch (err) {
-      console.error("Fetch error:", err.message);
-      res.status(500).json({ error: "Unable to fetch TTD data" });
-    }
-  });
-
-// Scheduled job (every 30 minutes)
-exports.scheduleTTDStatus = functions
-  .region("asia-south1")
-  .pubsub.schedule("every 30 minutes")
-  .onRun(async () => {
-    try {
-      const { data } = await axios.get("https://tirupatibalaji.ap.gov.in/portal/jsondata/ticketStatus.json");
-      const crowdData = {
-        currentPilgrims: data?.sarvaDarshan?.pilgrims || "N/A",
-        waitingCompartments: data?.sarvaDarshan?.waitingComp || "N/A",
-        darshanTime: data?.sarvaDarshan?.time || "N/A",
-        todayTotal: data?.sarvaDarshan?.total || "N/A",
-        updatedAt: new Date().toISOString(),
-      };
-      await db.collection("crowdStatus").doc("current").set(crowdData);
-      console.log("Crowd data updated");
-    } catch (err) {
-      console.error("Scheduled fetch failed:", err.message);
-    }
-  });
-
         <div class="special-notice" style="margin-top: 1rem;">
           Official TTD Special Entry Darshan Priority darshan through official TTD Special Entry (₹300 paid to TTD) is not available. no Special entry passes will be provided.
         </div>
