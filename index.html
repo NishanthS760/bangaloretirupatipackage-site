@@ -2232,23 +2232,22 @@
         // ... other inits
       }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    })();
-  </script>
+    if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
 
-  <!-- Firebase SDKs -->
+<!-- ↓↓↓  PASTE FIREBASE CODE HERE ↓↓↓ -->
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 
 <script>
-  // ----------------------------------------------------
-  //  🔥  Firebase configuration for Bangaloretirupatipackage
-  // ----------------------------------------------------
+  // Firebase configuration for bangaloretirupatipackage
   const firebaseConfig = {
     apiKey: "AIzaSyCV34wdgd1748vbCM6MPNS8iIINWDclxms",
     authDomain: "bangaloretirupatipackage.firebaseapp.com",
@@ -2260,27 +2259,20 @@
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
-  // Initialize modules
   const auth = firebase.auth();
   const db = firebase.firestore();
 
-  // Example Firestore test write (remove later)
-  async function testFirebaseConnection() {
-    try {
-      await db.collection("test").add({
-        message: "Firebase connected successfully",
-        timestamp: new Date()
-      });
-      console.log("✅ Firebase connection verified and data written.");
-    } catch (e) {
-      console.error("❌ Firebase write failed:", e);
-    }
-  }
-
-  // Run test once on page load
-  testFirebaseConnection();
+  // Verify Firestore connectivity
+  db.collection("test").add({
+    check: "Firebase connected successfully",
+    time: new Date()
+  }).then(() => {
+    console.log("✅ Firebase working and data added to Firestore.");
+  }).catch(err => {
+    console.error("❌ Firestore error:", err);
+  });
 </script>
+<!-- ↑↑↑ END FIREBASE CODE ↑↑↑ -->
 
 </body>
 </html>
