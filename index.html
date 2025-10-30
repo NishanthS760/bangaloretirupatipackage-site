@@ -179,6 +179,48 @@
       font-size: 16px;
     }
 
+    <!-- Add just before the closing </body> tag -->
+<style>
+  .fab-contact {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    z-index: 999;
+  }
+  .fab-contact a {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--saffron);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    box-shadow: var(--shadow-lg);
+    transition: transform .2s;
+  }
+  .fab-contact a:hover { transform: scale(1.07); }
+</style>
+
+<div class="fab-contact" aria-label="Contact shortcuts">
+  <!-- Call -->
+  <a href="tel:+919611621938" aria-label="Call us now">
+    📞
+  </a>
+  <!-- WhatsApp -->
+  <a href="https://wa.me/919611621938?text=Hello%20I%20want%20to%20book%20a%20pilgrimage%20package"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    💬
+  </a>
+</div>
+    
     body {
       margin: 0;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
