@@ -44,6 +44,17 @@
     gtag('config', 'G-GRPHW83NEW');
   </script>
 
+  <script>
+  // fetch the config from a protected endpoint (e.g., /api/firebase-config)
+  fetch('/api/firebase-config')
+    .then(r => r.json())
+    .then(cfg => {
+      firebase.initializeApp(cfg);
+      // now you can use auth / firestore
+    })
+    .catch(err => console.error('Firebase config load error', err));
+  </script>
+  
   <!-- JSON-LD Schema (unchanged) -->
   <script type="application/ld+json">
   {
