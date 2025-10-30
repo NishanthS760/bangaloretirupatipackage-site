@@ -1,0 +1,38 @@
+# -------------------------------------------------
+# 1️⃣  Force HTTPS (redirect HTTP → HTTPS)
+# -------------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# -------------------------------------------------
+# 2️⃣  HSTS – tell browsers to always use HTTPS
+# -------------------------------------------------
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# -------------------------------------------------
+# 3️⃣  Content Security Policy (basic)
+# -------------------------------------------------
+Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://*.cloudflare.com https://*.googleusercontent.com; font-src https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.firebaseio.com"
+
+# -------------------------------------------------
+# 4️⃣  X‑Frame‑Options, X‑Content‑Type‑Options, Referrer‑Policy
+# -------------------------------------------------
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# -------------------------------------------------
+# 5️⃣  Compression (gzip & brotli) – most hosts enable this automatically,
+#    but you can force it if needed.
+# -------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# -------------------------------------------------
+# 6️⃣  Cache‑Control for static assets (1 year)
+# -------------------------------------------------
+<FilesMatch "\.(js|css|png|jpe?g|webp|svg|woff2?)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
