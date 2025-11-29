@@ -1,0 +1,39 @@
+name: PR HTML checks
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+
+jobs:
+  newline-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check index.html EOF newline
+        run: |
+          file="index.html"
+          if [ ! -f "$file" ]; then
+            echo "::error::${file} not found"
+            exit 1
+          fi
+          last_hex=$(tail -c1 "$file" | od -An -t x1 | tr -d ' \n')
+          echo "last_byte=$last_hex"
+          if [ "$last_hex" != "0a" ]; then
+            echo "::error file=$file::Missing final LF (0x0A) at EOF"
+            exit 1
+          fi
+          echo "EOF newline check passed"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install htmlhint
+        run: npm install -g htmlhint
+
+      - name: Run htmlhint
+        run: htmlhint "**/*.html"
