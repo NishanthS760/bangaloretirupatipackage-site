@@ -1,0 +1,10 @@
+# Force proper MIME types for GitHub Pages
+include:
+  - sitemap.xml
+  - robots.txt
+
+defaults:
+  - scope:
+      path: "sitemap.xml"
+    values:
+      content-type: "application/xml"
