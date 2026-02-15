@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-<!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://www.bangaloretirupatipackage.com/</loc>
-  <lastmod>2026-02-16</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
+<loc>https://www.bangaloretirupatipackage.com/</loc>
+<lastmod>2026-02-16</lastmod>
+<priority>1.0</priority>
 </url>
-
 </urlset>
