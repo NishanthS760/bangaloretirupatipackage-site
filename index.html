@@ -11,10 +11,25 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛕</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRPHW83NEW"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-GRPHW83NEW');</script>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GRPHW83NEW';
+    document.head.appendChild(script);
+    
+    script.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRPHW83NEW');
+    };
+  }, 3000); // Load after 3 seconds
+});
+</script>
 <meta property="og:title" content="Bangalore's #1 Curated Tirupati Platform | Expert TTD Guide | 50% Faster">
 <meta property="og:description" content="Exclusive Expert TTD Guide Service for 50% faster darshan. Partnered with top-rated travels. AC sleeper, private fresh-up, authentic meals. ₹2,499.">
 <meta property="og:url" content="https://www.bangaloretirupatipackage.com/">
