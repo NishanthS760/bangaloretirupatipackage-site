@@ -46,6 +46,42 @@ window.addEventListener('load', function() {
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes your platform different from other Tirupati packages?","acceptedAnswer":{"@type":"Answer","text":"We are Bangalore's 1st curated platform model. We partner with only top-rated (4+ star) travels and add exclusive Expert TTD Guide Service to every booking. Our guides have 10+ years TTD experience and provide 50% faster darshan through SSD token queue expertise. You get quality-guaranteed travel partners PLUS expert darshan assistance."}},{"@type":"Question","name":"What is Expert TTD Guide Service?","acceptedAnswer":{"@type":"Answer","text":"Our exclusive expert guides are TTD-certified professionals with 10+ years temple experience. They provide SSD token queue expertise for 50% faster regular darshan (2-3 hours vs 4-6 hours), proper ritual guidance, and hassle-free temple navigation. This is our unique value addition to partnered travel services."}},{"@type":"Question","name":"What's included in ₹2,499?","acceptedAnswer":{"@type":"Answer","text":"Complete package: AC sleeper bus (partnered travel), private fresh-up rooms (NOT shared), breakfast, lunch, Expert TTD Guide Service (our exclusive addition), regular darshan assistance, prasadam, and doorstep Bangalore drop. No hidden charges."}},{"@type":"Question","name":"Is Special Entry Darshan (₹300) included?","acceptedAnswer":{"@type":"Answer","text":"NO. Official TTD Special Entry is NOT available. Our Expert TTD Guide provides regular darshan queue assistance with 50% time reduction through SSD token expertise and proper queue management."}},{"@type":"Question","name":"How do you ensure quality?","acceptedAnswer":{"@type":"Answer","text":"Platform model with strict curation: Only 4+ star rated travel partners, verified through 2000+ customer reviews. Every booking includes our exclusive Expert TTD Guide Service. Quality control at every step - travel, facilities, meals, and darshan assistance."}},{"@type":"Question","name":"What documents are required?","acceptedAnswer":{"@type":"Answer","text":"Government ID mandatory: Aadhar, Passport, PAN, or Driver License. TTD requires identity proof for darshan. Non-Indian nationals need valid passport and visa."}}]}
 </script>
+
+/* ADD THIS AT THE VERY TOP OF YOUR <style> TAG */
+
+/* Prevent CLS - System font fallback */
+html { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+
+/* Force font display swap */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter'), local('system-ui');
+}
+
+/* Prevent button layout shift */
+.btn {
+  min-height: 48px !important;
+  min-width: 120px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cta-grid {
+  min-height: 160px;
+}
+
+.hero {
+  min-height: 100vh;
+}
+
+/* Prevent WhatsApp/Call button shift */
+.trust-signal {
+  min-height: 40px;
+  display: inline-flex !important;
+  align-items: center !important;
+}
 <style>
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px}body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:#334155;background:#fff;overflow-x:hidden}
 :root{--primary:#FF6B35;--primary-dark:#E85A2A;--secondary:#F7931E;--navy:#1E293B;--slate:#334155;--gray:#64748B;--light:#F1F5F9;--white:#fff;--green:#10B981;--shadow:0 10px 25px -5px rgba(0,0,0,.1);--radius:12px}
