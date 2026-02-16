@@ -1,23 +1,52 @@
 # Robots.txt for Bangalore Tirupati Package
-# Optimized for Google indexing
+# Updated: February 16, 2026
 
+# Allow all search engines to index public pages
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /admin
+Disallow: /src/
+Disallow: /assets/
+Disallow: /*.pdf$
+Disallow: /api/
+Disallow: /.git/
 
 # Sitemap location
 Sitemap: https://www.bangaloretirupatipackage.com/sitemap.xml
 
-# Crawl delay (optional - prevents server overload)
+# Crawl delay (prevent server overload)
 Crawl-delay: 1
 
-# Block specific bots (optional)
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 0
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+# Block aggressive crawlers
 User-agent: AhrefsBot
 Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
 
-# Allow Google specifically
-User-agent: Googlebot
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Allow Google Image indexing
+User-agent: Googlebot-Image
 Allow: /
-Crawl-delay: 0
+
+# Allow Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /admin/
