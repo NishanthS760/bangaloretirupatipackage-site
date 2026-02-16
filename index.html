@@ -99,6 +99,42 @@ footer{background:var(--navy);color:#fff;padding:3rem 0 1.5rem;margin-top:4rem}
 .footer-bottom{border-top:1px solid #334155;padding-top:1.5rem;text-align:center;font-size:.875rem;opacity:.8}
 @media(max-width:768px){.hero{min-height:auto;padding:2rem 0}.cta-grid{grid-template-columns:1fr}.btn{width:100%}.section{padding:2.5rem 0}}
 </style>
+
+/* ADD THIS AT THE VERY TOP OF YOUR <style> TAG */
+
+/* Prevent CLS - System font fallback */
+html { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+
+/* Force font display swap */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter'), local('system-ui');
+}
+
+/* Prevent button layout shift */
+.btn {
+  min-height: 48px !important;
+  min-width: 120px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cta-grid {
+  min-height: 160px;
+}
+
+.hero {
+  min-height: 100vh;
+}
+
+/* Prevent WhatsApp/Call button shift */
+.trust-signal {
+  min-height: 40px;
+  display: inline-flex !important;
+  align-items: center !important;
+}
 </head>
 <body>
 
