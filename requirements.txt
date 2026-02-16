@@ -1,0 +1,2 @@
+pandas
+GoogleAdsClient # Placeholder, will be installed if needed
