@@ -2,7 +2,7 @@
 # BangaloreTirupatiPackage.com - Optimized Configuration
 # Last Updated: February 19, 2026
 
-GOOGLE_ADS_CUSTOMER_ID = "YOUR_CUSTOMER_ID" # Get from Google Ads account
+GOOGLE_ADS_CUSTOMER_ID = "778-147-4037" # Get from Google Ads account
 
 # ============================================================================
 # CAMPAIGN LEVEL SETTINGS
