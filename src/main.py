@@ -8,7 +8,22 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 import config
 
 class GoogleAdsCampaignGenerator:
+    """
+    Generate and assemble a Google Search campaign (campaigns, ad groups, keywords, ads, negatives, extensions, and guidance) from a parsed website analysis and configuration defaults.
+    Parameters:
+        - website_analysis_path (str): Path to the website analysis text file used to extract service details, pricing, target audience, locations (expects a "X to Y" pattern for origin/destination), key selling points (KSPs), and core keywords.
+    Processing Logic:
+        - Uses simple regex parsing to extract structured fields from the provided analysis file; locations_served expects a "origin to destination" format and will fall back to empty strings if parsing fails.
+        - Builds a campaign titled "Bangalore to Tirupati Packages", creates themed ad groups, and generates SKAGs only for keywords flagged as high-intent.
+        - For each keyword, adds Exact, Phrase, and Broad match entries and uses external config constants for budgets, CPCs, ad assets, extensions, negatives, device adjustments, and schedules.
+        - All generation methods mutate self.campaign_data in place, print progress messages, and export non-guidance sections to CSV files under data/<filename_prefix>_<section>.csv.
+    """
     def __init__(self, website_analysis_path):
+        """Initialize the object with loaded website analysis data and a default campaign data structure.
+        Parameters:
+            - website_analysis_path (str): Path to the website analysis file or data source used to populate self.website_analysis.
+        Returns:
+            - None: The constructor initializes instance attributes (self.website_analysis and self.campaign_data) and does not return a value."""
         self.website_analysis = self._load_website_analysis(website_analysis_path)
         self.campaign_data = {
             "campaigns": [],
@@ -20,6 +35,17 @@ class GoogleAdsCampaignGenerator:
         }
 
     def _load_website_analysis(self, path):
+        """Load and parse a website analysis text file and return extracted fields.
+        Parameters:
+            - path (str): Path to the text file containing the website analysis content.
+        Returns:
+            - dict: A dictionary with extracted values (when present), for example:
+                - 'services' (str): Service description.
+                - 'pricing' (str): Pricing information.
+                - 'target_audience' (str): Target audience description.
+                - 'locations_served' (dict): {'origin': str, 'destination': str} parsed from a "X to Y" pattern.
+                - 'ksp' (list of str): Key Selling Points extracted from the KSP section.
+                - 'core_keywords' (list of str): Core target keywords extracted from the keywords section."""
         with open(path, 'r') as f:
             content = f.read()
 
@@ -66,6 +92,11 @@ class GoogleAdsCampaignGenerator:
         return analysis
 
     def generate_campaign_structure(self):
+        """Generates and appends a search campaign, themed ad groups, SKAG ad groups, and associated keywords into self.campaign_data using website analysis and config defaults.
+        Parameters:
+            - self (object): Instance containing 'campaign_data' (dict), 'website_analysis' (dict), and the helper method '_add_keywords_to_ad_group' used to populate campaigns and ad groups.
+        Returns:
+            - None: Modifies 'self.campaign_data' in place by adding a campaign entry and multiple ad_group entries (general ad groups and single-keyword SKAGs); also prints progress."""
         print("Generating campaign structure...")
         campaign_name = "Bangalore to Tirupati Packages"
         self.campaign_data["campaigns"].append({
@@ -134,6 +165,16 @@ class GoogleAdsCampaignGenerator:
                     self._add_keywords_to_ad_group(campaign_name, skag_ad_group_name, [keyword], is_skag=True)
 
     def _add_keywords_to_ad_group(self, campaign, ad_group, keywords, is_skag=False):
+        """Add Exact, Phrase, and Broad match keyword entries to the object's campaign data for a given campaign and ad group.
+        Parameters:
+            - campaign (str): Name or identifier of the campaign to which keywords will be added.
+            - ad_group (str): Name or identifier of the ad group to which keywords will be added.
+            - keywords (Iterable[str]): Sequence of keyword strings; each keyword will be added as Exact, Phrase, and Broad match entries.
+            - is_skag (bool): Optional flag indicating whether the ad group is a Single Keyword Ad Group (SKAG). Present for future behavior changes; not required for current functionality.
+        Returns:
+            - None: Mutates self.campaign_data['keywords'] in place by appending dictionaries for each keyword and match type. Each appended dict contains Campaign, Ad Group, Keyword (formatted per match type), Match Type, Max CPC (pulled from config defaults), and Final URL.
+        Example:
+            - Calling _add_keywords_to_ad_group('Campaign A', 'Ad Group 1', ['tiruapti package']) will append three entries for that keyword (Exact, Phrase, Broad) to self.campaign_data['keywords']."""
         for kw in keywords:
             # Exact Match
             self.campaign_data["keywords"].append({
@@ -173,6 +214,11 @@ class GoogleAdsCampaignGenerator:
         pass
 
     def generate_ad_copy(self):
+        """Generate responsive search ad entries from configured headlines/descriptions and append them to the instance campaign data.
+        Parameters:
+            - self (object): Instance containing campaign_data (a dict). Expected keys: "ad_groups" (list of dicts, each with an "Ad Group" name) and "ads" (list to which generated ad entries will be appended). This method also reads config.AD_HEADLINES and config.AD_DESCRIPTIONS.
+        Returns:
+            - NoneType: Updates self.campaign_data["ads"] in place with generated responsive search ad entries and prints progress."""
         print("Generating ad copy...")
         campaign_name = "Bangalore to Tirupati Packages"
         final_url = "https://www.bangaloretirupatipackage.com"
@@ -210,6 +256,15 @@ class GoogleAdsCampaignGenerator:
         # Further suggestions can be added to a separate report or config file
 
     def generate_negative_keywords(self):
+        """Append a campaign-level negative keyword entry to the instance's campaign_data.
+        Parameters:
+            - self (object): Instance containing a 'campaign_data' dict and access to configuration (specifically config.GLOBAL_NEGATIVE_KEYWORDS).
+        Returns:
+            - None: Updates self.campaign_data in-place by adding a dictionary with:
+                - "Campaign": the campaign name ("Bangalore to Tirupati Packages"),
+                - "Ad Group": empty string (campaign-level negative),
+                - "Keyword": a comma-separated string of global negative keywords,
+                - "Match Type": "Phrase"."""
         print("Generating negative keyword lists...")
         self.campaign_data["negative_keywords"].append({
             "Campaign": "Bangalore to Tirupati Packages",
@@ -226,6 +281,12 @@ class GoogleAdsCampaignGenerator:
         pass
 
     def setup_ad_extensions(self):
+        """Set up ad extensions for a specific campaign by appending sitelinks, callouts, structured snippets, and an optional call extension to self.campaign_data["ad_extensions"].
+        Parameters:
+            - self (object): Instance containing a campaign_data dictionary and access to the config module/constants
+        (expects config.SITELINKS, config.CALLOUTS, config.STRUCTURED_SNIPPETS, and optional config.CALL_EXTENSION).
+        Returns:
+            - None: Modifies self.campaign_data["ad_extensions"] in place; no value is returned."""
         print("Setting up ad extensions...")
         campaign_name = "Bangalore to Tirupati Packages"
 
@@ -281,6 +342,11 @@ class GoogleAdsCampaignGenerator:
         self.campaign_data["campaigns"][0]["Ad Scheduling"] = "; ".join(config.AD_SCHEDULE) + " (Adjust based on peak booking times and call center hours)"
 
     def provide_conversion_tracking_guidance(self):
+        """Store detailed conversion tracking guidance in the instance's campaign_data.
+        Parameters:
+            - self (object): The instance containing a campaign_data dictionary that will be updated with conversion tracking guidance.
+        Returns:
+            - None: Updates self.campaign_data in-place under the key "conversion_tracking_guidance" and prints a short notification message."""
         print("Providing conversion tracking guidance...")
         # This would be a detailed guide in the README or a separate document
         self.campaign_data["conversion_tracking_guidance"] = (
@@ -301,6 +367,11 @@ class GoogleAdsCampaignGenerator:
                 print(f"Exported {key} to data/{filename_prefix}_{key}.csv")
 
     def run_automation(self):
+        """Run the full automated workflow to build and export a pay-per-click campaign, executing all generation, suggestion, and export steps.
+        Parameters:
+            - self (object): Instance of the automation class; used to access campaign settings, store generated artifacts, and manage state during the workflow.
+        Returns:
+            - None: Performs operations with side effects (creates campaign structure, performs keyword research, generates ad copy and negative keywords, configures targeting and extensions, suggests budgets/bids/schedules, provides tracking guidance, and exports results to CSV) and does not return a value."""
         self.generate_campaign_structure()
         self.perform_keyword_research()
         self.generate_ad_copy()
