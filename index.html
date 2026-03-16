@@ -27,6 +27,52 @@
   <meta property="og:url" content="https://www.bangaloretirupatipackage.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.bangaloretirupatipackage.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bangalore Tirupati Booking Platform | ₹2,499 All-Inclusive">
+  <meta name="twitter:description"
+    content="Government-registered aggregator. Compare 6+ verified operators. Expert TTD Guide. Group discounts up to 13%. Book at ₹2,499.">
+  <meta name="twitter:image" content="https://www.bangaloretirupatipackage.com/og-image.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "BangaloreTirupatiPackage.com",
+    "url": "https://www.bangaloretirupatipackage.com",
+    "logo": "https://www.bangaloretirupatipackage.com/favicon.svg",
+    "telephone": "+918088121938",
+    "email": "nishanths760@gmail.com",
+    "description": "Government-registered independent booking platform and aggregator service for Bangalore to Tirupati packages. UDYAM certified, 6+ verified partner operators, expert TTD guide service.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "12.9716",
+      "longitude": "77.5946"
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "priceRange": "₹2,499",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "2000",
+      "bestRating": "5"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+918088121938",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Kannada", "Telugu", "Hindi"],
+      "hoursAvailable": "Mo-Su 00:00-23:59"
+    },
+    "sameAs": [
+      "https://wa.me/918088121938"
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1816,6 +1862,258 @@
         align-items: center
       }
     }
+
+    /* ===== PHOTO GALLERY STRIP ===== */
+    .gallery-strip {
+      position: relative;
+      overflow: hidden;
+      height: 320px;
+      background: var(--navy)
+    }
+
+    .gallery-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      transition: transform 8s ease;
+      filter: brightness(.75) saturate(.9)
+    }
+
+    .gallery-strip:hover img {
+      transform: scale(1.04)
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(6, 17, 31, .85) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 2rem;
+      text-align: center
+    }
+
+    .gallery-overlay h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      letter-spacing: .04em;
+      margin-bottom: .4rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .6)
+    }
+
+    .gallery-overlay p {
+      color: rgba(240, 232, 216, .85);
+      font-size: .875rem;
+      max-width: 560px
+    }
+
+    @media(max-width:768px) {
+      .gallery-strip {
+        height: 220px
+      }
+
+      .gallery-overlay {
+        padding: 1.25rem
+      }
+    }
+
+    /* ===== DEITY HERO PANEL ===== */
+    .deity-panel {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      background: rgba(255, 255, 255, .06);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: left
+    }
+
+    .deity-img-wrap {
+      flex-shrink: 0;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 20px rgba(247, 168, 52, .35)
+    }
+
+    .deity-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top
+    }
+
+    .deity-panel-text {
+      flex: 1
+    }
+
+    .deity-panel-text h3 {
+      font-family: 'Cinzel', serif;
+      font-size: .95rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      letter-spacing: .06em
+    }
+
+    @media(max-width:480px) {
+      .deity-panel {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.25rem
+      }
+
+      .deity-img-wrap {
+        width: 70px;
+        height: 70px
+      }
+    }
+
+    /* ===== OFFICE TRUST SECTION ===== */
+    .office-section {
+      background: var(--navy-mid);
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .office-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem
+    }
+
+    .office-img-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color .2s
+    }
+
+    .office-img-card:hover {
+      border-color: rgba(255, 107, 53, .4)
+    }
+
+    .office-img-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease
+    }
+
+    .office-img-card:hover img {
+      transform: scale(1.03)
+    }
+
+    .office-img-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(6, 17, 31, .9));
+      padding: .875rem 1rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--off-white)
+    }
+
+    .office-info {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center
+    }
+
+    .off-stat {
+      display: flex;
+      flex-direction: column;
+      gap: .2rem
+    }
+
+    .off-stat strong {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.1rem
+    }
+
+    .off-stat span {
+      font-size: .75rem;
+      color: var(--muted)
+    }
+
+    @media(max-width:640px) {
+      .office-grid {
+        grid-template-columns: 1fr
+      }
+
+      .office-img-card img {
+        height: 200px
+      }
+    }
+
+    /* ===== BRAND BADGE ===== */
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: rgba(0, 0, 0, .4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(247, 168, 52, .3);
+      border-radius: var(--radius);
+      padding: .6rem 1rem;
+      margin-bottom: 1.25rem
+    }
+
+    .brand-badge img {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0
+    }
+
+    .brand-badge-text {
+      text-align: left
+    }
+
+    .brand-badge-text strong {
+      display: block;
+      font-size: .78rem;
+      color: var(--gold-lt);
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .brand-badge-text span {
+      font-size: .7rem;
+      color: var(--muted)
+    }
+
+    @media(max-width:480px) {
+      .brand-badge {
+        display: none
+      }
+    }
   </style>
 </head>
 
@@ -1909,7 +2207,17 @@
     <div class="hero-overlay"></div>
     <div class="hero-glow"></div>
     <div class="container hero-content">
-      <div class="hero-eyebrow">🏛️ Government-Registered Platform (UDYAM Certified) · Since September 2025</div>
+      <div class="hero-eyebrow">
+        <div class="brand-badge">
+          <img src="assets/images/brand-logo.jpg" alt="BangaloreTirupatiPackage.com logo" width="44" height="44"
+            loading="eager">
+          <div class="brand-badge-text">
+            <strong>UDYAM Certified Platform</strong>
+            <span>Since September 2025</span>
+          </div>
+        </div>
+        🏛️ Government-Registered Platform · Since September 2025
+      </div>
       <h1>India's First Dedicated<br><span class="accent">Tirupati</span> Booking Platform</h1>
       <p class="hero-tagline">Compare 6+ Verified Operators &nbsp;•&nbsp; Expert Guide Service &nbsp;•&nbsp; Group
         Discounts up to 13%</p>
@@ -1936,21 +2244,29 @@
         <span class="trust-chip">🚌 6+ Verified Partner Operators</span>
         <span class="trust-chip">⏰ 24/7 Platform Support</span>
       </div>
-      <div class="benefits-panel">
-        <h3>🎯 Platform Benefits — Why Book Through Us vs. Direct</h3>
-        <ul class="benefits-list">
-          <li>Compare 6+ operators in one place (no calling multiple agents)</li>
-          <li>Scam protection — We verify all partner operators</li>
-          <li>Exclusive group discounts negotiated by platform (up to 13%)</li>
-          <li>Expert TTD Guide Service (platform-exclusive value addition)</li>
-          <li>50% faster darshan via expert SSD token queue guidance</li>
-          <li>24/7 platform support coordination throughout journey</li>
-          <li>Quality control — Only 4+ star rated operators allowed</li>
-          <li>Centralized complaint resolution and accountability</li>
-        </ul>
-        <div class="ttd-note">⚠️ <strong>Important:</strong> Official TTD Special Entry (₹300) is NOT available through
-          any platform or operator. Our Expert Guide provides regular darshan assistance with 50% time reduction through
-          SSD token queue expertise. Government ID mandatory for temple entry.</div>
+      <div class="deity-panel">
+        <div class="deity-img-wrap">
+          <img src="assets/images/venkateswara.jpg" alt="Lord Venkateswara — Tirumala Tirupati" width="90" height="90"
+            loading="eager" decoding="async">
+        </div>
+        <div class="deity-panel-text">
+          <h3>🎯 Platform Benefits — Why Book Through Us vs. Direct</h3>
+          <ul class="benefits-list">
+            <li>Compare 6+ operators in one place (no calling multiple agents)</li>
+            <li>Scam protection — We verify all partner operators</li>
+            <li>Exclusive group discounts negotiated by platform (up to 13%)</li>
+            <li>Expert TTD Guide Service (platform-exclusive value addition)</li>
+            <li>50% faster darshan via expert SSD token queue guidance</li>
+            <li>24/7 platform support coordination throughout journey</li>
+            <li>Quality control — Only 4+ star rated operators allowed</li>
+            <li>Centralized complaint resolution and accountability</li>
+          </ul>
+          <div class="ttd-note">⚠️ <strong>Important:</strong> Official TTD Special Entry (₹300) is NOT available
+            through
+            any platform or operator. Our Expert Guide provides regular darshan assistance with 50% time reduction
+            through
+            SSD token queue expertise. Government ID mandatory for temple entry.</div>
+        </div>
       </div>
     </div>
   </header>
@@ -2139,6 +2455,17 @@
       </div>
     </section>
 
+    <!-- PHOTO GALLERY STRIP -->
+    <div class="gallery-strip">
+      <img src="assets/images/collage.jpg"
+        alt="Tirupati temple, pilgrims, darshan journey — BangaloreTirupatiPackage.com" width="1280" height="320"
+        loading="lazy" decoding="async">
+      <div class="gallery-overlay">
+        <h3>🛕 13 Years Connecting Devotees to Sri Venkateswara</h3>
+        <p>Every journey is sacred. We make it seamless — from Bangalore to the divine hills of Tirumala.</p>
+      </div>
+    </div>
+
     <!-- JOURNEY DETAILS -->
     <section class="section reveal">
       <div class="container">
@@ -2262,6 +2589,38 @@
         </div>
         <p style="text-align:center;margin-top:1.5rem;color:var(--muted);font-size:.85rem">Exact timing and pickup point
           details shared upon booking confirmation. Return drop at same location. Platform support: +91-8088121938</p>
+      </div>
+    </section>
+
+    <!-- OUR OFFICE -->
+    <section class="office-section reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Visit Our <span>Physical Office</span></h2>
+          <p>Real office, real team — walk in and book in person anytime</p>
+        </div>
+        <div class="office-grid">
+          <div class="office-img-card">
+            <img src="assets/images/office-exterior.jpg" alt="BangaloreTirupatiPackage.com office exterior — Bangalore"
+              width="600" height="260" loading="lazy" decoding="async">
+            <div class="office-img-label">📍 Our Bangalore Office — Street View</div>
+          </div>
+          <div class="office-img-card">
+            <img src="assets/images/office-interior.jpg"
+              alt="BangaloreTirupatiPackage.com office interior — booking counter" width="600" height="260"
+              loading="lazy" decoding="async">
+            <div class="office-img-label">🏢 Inside Our Booking Office</div>
+          </div>
+        </div>
+        <div class="office-info">
+          <div class="off-stat"><strong>UDYAM-KR-03-0612429</strong><span>Govt Registration No.</span></div>
+          <div class="off-stat"><strong>Since 2013</strong><span>13 Years in Industry</span></div>
+          <div class="off-stat"><strong>+91-8088121938</strong><span>Walk-in or Call</span></div>
+          <div class="off-stat"><strong>24/7</strong><span>Support Available</span></div>
+        </div>
+        <p style="text-align:center;margin-top:1.25rem;font-size:.83rem;color:var(--muted)">MDRN-ORGANIX · Bangalore,
+          Karnataka · <a href="https://wa.me/918088121938" style="color:var(--orange)" target="_blank"
+            rel="noopener">WhatsApp us</a> to confirm walk-in timings</p>
       </div>
     </section>
 
