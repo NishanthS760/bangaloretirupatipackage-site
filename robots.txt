@@ -1,5 +1,5 @@
 # Robots.txt for Bangalore Tirupati Package
-# Updated: February 16, 2026
+# Updated: March 29, 2026
 
 # Allow all search engines to index public pages
 User-agent: *
@@ -7,7 +7,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /admin
 Disallow: /src/
-Disallow: /assets/
 Disallow: /*.pdf$
 Disallow: /api/
 Disallow: /.git/
@@ -29,13 +28,16 @@ User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 
-# Block aggressive crawlers
+# Allow SEO research bots (needed for backlink tracking)
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
+Crawl-delay: 2
 
 User-agent: SemrushBot
-Disallow: /
+Allow: /
+Crawl-delay: 2
 
+# Block aggressive crawlers
 User-agent: MJ12bot
 Disallow: /
 
